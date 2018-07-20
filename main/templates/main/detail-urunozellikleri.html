@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}{% endblock %}
+{% block content %}
+    <div>
+        <h2>{{urunozellikleri.ozellikAdi}} Ozelliğine Ait Bilgiler </h2>
+            <table style="text-align: left;  border: 1px solid black; ">
+                    <tr style="background-color: deepskyblue;">
+                      <th>Detaylar</th>
+                      <th></th>
+                      <th></th>
+                    </tr>
+            
+                   <tr>
+                    <td>Ozellik Adı:  </td><td>{{ urunozellikleri.ozellikAdi }}</td> </tr>
+                    <tr>
+                    <td>Urun Fiyatı:  </td><td>{{ urunozellikleri.urunFiyati }} TL</td> </tr>
+                    <tr><td></td></tr> 
+                    <tr><td></td><td></td></tr>         
+
+       </table>
+        <p>
+            <a href="{% url 'create'  %}"> Urun Ozelliği Düzenle</a>
+        </p>
+
+{% endblock %}

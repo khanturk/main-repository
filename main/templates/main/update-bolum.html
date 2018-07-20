@@ -1,0 +1,129 @@
+{% extends "base.html" %}
+{% block title %}{% endblock %}
+{% block content %}
+<div>
+        <form method="POST" class="post-form">{% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="save btn btn-default">Kaydet</button>
+        </form>
+        <div>
+                <table class="table table-hover" style="text-align: left;  border: 1px solid black; ">
+                        <tr style="background-color: deepskyblue;">
+                          <th>Reyon İsmi</th>
+                          <th>Tezgahtar</th>
+                          <th></th>
+                          <th></th>
+                          <th></th>
+                          <th></th>
+                        </tr>
+                {% for ryn in reyon %}
+                <tr>
+                        <td>{{ ryn.numara }}</td>
+                        <td>{{ ryn.saticiAdi }}</td>
+                        <td> <a style="margin-left: 20px"href="{% url 'detail-reyon' id=ryn.id %}">Detay</a></td>
+                        <td><a style="margin-left: 20px" href="{% url 'update-reyon' id=ryn.id %}">Düzenle</a></td>
+                        <td> <a style="margin-left: 20px"href="{% url 'delete-reyon' id=ryn.id %}">Sil</a></td>
+                        <td> <a style="margin-left: 20px"href="{% url 'create-uruntipi' id=ryn.id %}">UrunTipi Ekle</a></td>  
+                    </tr>
+                {% empty %}
+                    <li>Hiç Reyon Eklenmedi.</li>
+                {% endfor %}
+    
+           </table>
+            <p>
+            
+            </p>
+        </div>
+
+        <div>
+                <table class="table table-hover" style="text-align: left;  border: 1px solid black; ">
+                        <tr style="background-color: deepskyblue;">
+                          <th>urun ismi</th>
+                          <th></th>
+                          <th></th>
+                          <th></th>
+                          <th></th>
+                        </tr>
+                {% for utip in uruntipi %}
+                <tr>
+                        <td>{{ utip.tip_ismi }}</td>
+                        <td> <a style="margin-left: 20px"href="{% url 'detail-uruntipi' id=utip.id %}">Detay</a></td>
+                        <td><a style="margin-left: 20px" href="{% url 'update-uruntipi' id=utip.id %}">Düzenle</a></td>
+                        <td> <a style="margin-left: 20px"href="{% url 'delete-uruntipi' id=utip.id %}">Sil</a></td>
+                        <td> <a style="margin-left: 20px"href="{% url 'create-urunadi' id=utip.id %}">UrunAdi Ekle</a></td> 
+                    </tr>
+                {% empty %}
+                    <li>Hiç Urun Tipi Eklenmedi.</li>
+                {% endfor %}
+    
+           </table>
+            <p>
+              
+            </p>
+        </div>
+        <div>
+                <table class="table table-hover" style="text-align: left;  border: 1px solid black; ">
+                        <tr style="background-color: deepskyblue;">
+                          <th>Urun Adı</th>
+                          <th></th>
+                          <th></th>
+                          <th></th>
+                          <th></th>
+                          <th></th>
+                        </tr>
+                {% for uad in urunadi %}
+                <tr>
+                        <td>{{ uad.urun_isim }}</td>
+                        <td> <a style="margin-left: 20px"href="{% url 'detail-urunadi' id=uad.id %}">Detay</a></td>
+                        <td><a style="margin-left: 20px" href="{% url 'update-urunadi' id=uad.id %}">Düzenle</a></td>
+                        <td> <a style="margin-left: 20px"href="{% url 'delete-urunadi' id=uad.id %}">Sil</a></td>
+                        <td> <a style="margin-left: 20px"href="{% url 'create-urunozellik' id=uad.id %}">UrunAdi Ekle</a></td>  
+                    </tr>
+                {% empty %}
+                    <li>Hiç Urun  Eklenmedi.</li>
+                {% endfor %}
+    
+           </table>
+            <p>
+              
+            </p>
+        </div>
+        <div>
+                <table class="table table-hover" style="text-align: left;  border: 1px solid black; ">
+                        <tr style="background-color: deepskyblue;">
+                          <th>Urun Özelliği</th>
+                          <th></th>
+                          <th></th>
+                          <th></th>
+                          <th></th>
+                        </tr>
+                {% for uoz in urunoz %}
+                <tr>
+                        <td>{{ uoz.ozellikAdi }}</td>
+                        <td>{{ uoz.urunFiyatı }}</td>
+                        <td> <a style="margin-left: 20px"href="{% url 'detail-urunozellik' id=uoz.id %}">Detay</a></td>
+                        <td><a style="margin-left: 20px" href="{% url 'update-urunozellik' id=uoz.id %}">Düzenle</a></td>
+                        <td> <a style="margin-left: 20px"href="{% url 'delete-urunozellikleri' id=uoz.id %}">Sil</a></td>
+                      </tr>
+                {% empty %}
+                    <li>Hiç Bolum Eklenmedi.</li>
+                {% endfor %}
+    
+           </table>
+            <p>
+              
+            </p>
+        </div>
+</div>  
+      
+                
+    </div>
+    <div>
+    
+   
+</ul>   
+    </div>
+{% endblock %}
+
+
+             

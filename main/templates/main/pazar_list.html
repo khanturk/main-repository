@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}{% endblock %}
+{% block content %}
+
+    <h2>Pazar Listesi </h2>
+    <div>
+            <table class="table table-hover" style="text-align: left;  border: 1px solid black; ">
+                    <tr style="background-color: deepskyblue;">
+                      <th>Pazar İsmi</th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                    </tr>
+            {% for pazar in pazarlar %}
+            <tr>
+                    <td>{{ pazar.isim }}</td>
+                    <td> <a style="margin-left: 20px"href="{% url 'detail' id=pazar.id %}">Detay</a></td>
+                    <td><a style="margin-left: 20px" href="{% url 'update' id=pazar.id %}">Düzenle</a></td>
+                    <td> <a style="margin-left: 20px"href="{% url 'delete' id=pazar.id %}">Sil</a></td>
+                  </tr>
+            {% empty %}
+                <li>Hiç Pazar Eklenmedi.</li>
+            {% endfor %}
+
+       </table>
+        <p>
+            <a href="{% url 'create'  %}"> Pazar Ekle</a>
+        </p>
+    </div>  
+</table>
+
+{% endblock %}
+
+
+             

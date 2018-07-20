@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{% block title %}{% endblock %}
+{% block content %}
+    <div>
+        <h2>{{pazar.isim}} Pazarına Ait Bilgiler </h2>
+    
+            <table style="text-align: left;  border: 1px solid black; ">
+                    <tr style="background-color: deepskyblue;">
+                      <th>Detaylar</th>
+                      <th></th>
+                      <th></th>
+                    </tr>
+            
+                   <tr>
+                    <td>ismi:</td><td>{{ pazar.isim }}</td> </tr>
+                
+                   <tr><td>yonetim:</td><td>{{pazar.yonetim}}</td></tr> 
+                    <tr><td>Adres:</td><td>{{pazar.adres}}</td></tr>
+                 
+           
+
+       </table>
+        <p>
+            <a href="{% url 'create'  %}"> Pazar Ekle</a>
+        </p>
+    </div>
+    <!--''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''-->
+     <h2>{{pazar.isim}} Pazarına Ait Tüm Nesne  Bilgileri </h2> <div>
+         
+        {% for bolum in bolum %}
+         
+                <u style="color:cornflowerblue">-> {{ bolum.bolum_isim }}<br></u> 
+               
+        
+        {% empty %}
+             Hiç Bolum Eklenmedi. 
+        {% endfor %}
+      
+        {% for ryn in reyon %}
+        
+        <u style="color:crimson">&nbsp;&nbsp;. {{ ryn.numara }}&nbsp;&nbsp;||&nbsp;&nbsp;{{ryn.saticiAdi}}<br></u> 
+              
+        
+        {% empty %}
+             Hiç Bolum Eklenmedi. 
+        {% endfor %}
+      
+        {% for utipi in uruntipi %}
+        
+        <u style="color:cornflowerblue">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;->{{ utipi.tip_ismi }}<br></u> 
+        
+        {% empty %}
+             Hiç Bolum Eklenmedi. 
+        {% endfor %}
+      
+        {% for uadi in urunadi %}
+       
+        
+        <u style="color:crimson">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;. {{ uadi.urun_isim }}<br></u> 
+                
+        
+        
+        {% empty %}
+             Hiç Bolum Eklenmedi. 
+        {% endfor %}
+          
+        {% for uoz in urunozellikleri %}
+        
+        <u style="color:cornflowerblue">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-> {{ uoz.ozellikAdi }}<br></u> 
+                
+        
+        {% empty %}
+             Hiç Bolum Eklenmedi. 
+        {% endfor %}
+     
+    
+ 
+</div>
+
+{% endblock %}
+
+
+             
+                   
+                    

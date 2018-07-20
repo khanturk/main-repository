@@ -1,0 +1,33 @@
+<html lang="en">
+<head>
+    <title>{% block title %}Control Panel{% endblock %}</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <style>
+            table {
+            
+            }
+            
+            h1 {
+                color: blue;
+                padding-left: 30px;
+            }
+            </style>
+</head>
+
+<body>
+        <div class="jumbotron text-center">
+            <a href="/">
+                <img src="http://www.oksitem.com/wp-content/uploads/2018/03/oksitem-logo-3.png" alt="oKSitem Logo">
+            </a><h1>oKSitem Control Panel</h1>
+        </div>
+<div id="content" style="margin-left: 5%; margin-right:5%; " class="container">
+    <div class="md-col-10">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+</div>
+</body>
+</html>

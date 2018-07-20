@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}{% endblock %}
+{% block content %}
+<div>
+        <form method="POST" class="post-form">{% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="save btn btn-default">Kaydet</button>
+        </form>
+        <div>
+                <table style="text-align: left;  border: 1px solid black; ">
+                        <tr style="background-color: deepskyblue;">
+                          <th>Urun Özelliği</th>
+                          <th></th>
+                          <th></th>
+                          <th></th>
+                          <th></th>
+                        </tr>
+                {% for uoz in urunoz %}
+                <tr>
+                        <td>{{ uoz.ozellikAdi }}</td>
+                        <td>{{ uoz.urunFiyatı }}</td>
+                        <td> <a style="margin-left: 20px"href="{% url 'detail-urunozellik' id=uoz.id %}">Detay</a></td>
+                        <td><a style="margin-left: 20px" href="{% url 'update-urunozellik' id=uoz.id %}">Düzenle</a></td>
+                        <td> <a style="margin-left: 20px"href="{% url 'delete-urunozellikleri' id=uoz.id %}">Sil</a></td>
+                      </tr>
+                {% empty %}
+                    <li>Hiç Bolum Eklenmedi.</li>
+                {% endfor %}
+    
+           </table>
+            <p>
+                <a href="{% url 'create'  %}"> Bolum Ekle</a>
+            </p>
+        </div>
+</div>  
+    </div>
+    <div>
+</ul>   
+    </div>
+{% endblock %}
+
+
+             

@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}{% endblock %}
+{% block content %}
+    <div>
+        <h2>{{urunadi.urun_isim}} Urunune Ait Bilgiler </h2>
+    
+            <table style="text-align: left;  border: 1px solid black; ">
+                    <tr style="background-color: deepskyblue;">
+                      <th>Detaylar</th>
+                      <th></th>
+                      <th></th>
+                    </tr>
+            
+                   <tr>
+                    <td>Urun ismi</td><td>{{ urunadi.urun_isim }}</td> </tr>
+                    <tr><td></td></tr> 
+                    <tr><td></td><td></td></tr>         
+
+       </table>
+        <p>
+            <a href="{% url 'create'  %}"> Urun Adı Düzenle</a>
+        </p>
+
+    </div>
+    <!--''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''-->
+
+
+        {% for uoz in urunozellikleri %}  
+        <u style="color:cornflowerblue">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-> {{ uoz.ozellikAdi }}<br></u> 
+        {% empty %}
+             Hiç Bolum Eklenmedi. 
+        {% endfor %}
+</div>
+
+{% endblock %}
+
+
+             
+                   
+                    

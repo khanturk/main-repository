@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block title %}{% endblock %}
+{% block content %}
+    <div>
+        <h2>{{reyon.isim}} Bolumune Ait Bilgiler </h2>
+    
+            <table style="text-align: left;  border: 1px solid black; ">
+                    <tr style="background-color: deepskyblue;">
+                      <th>Detaylar</th>
+                      <th></th>
+                      <th></th>
+                    </tr>
+            
+                   <tr>
+                    <td>numara:</td><td>{{ reyon.numara }}</td> </tr>
+                    <tr><td>Tezgahtar:</td><td>{{reyon.saticiAdi}}</td></tr> 
+                    <tr><td></td><td></td></tr>         
+
+       </table>
+        <p>
+            <a href="{% url 'create'  %}"> Bolumu Düzenle</a>
+        </p>
+
+    </div>
+    <!--''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''-->
+      
+      
+        {% for utipi in uruntipi %}
+        
+        <u style="color:cornflowerblue">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;->{{ utipi.tip_ismi }}<br></u> 
+        
+        {% empty %}
+             Hiç Bolum Eklenmedi. 
+        {% endfor %}
+      
+        {% for uadi in urunadi %}
+       
+        
+        <u style="color:crimson">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;. {{ uadi.urun_isim }}<br></u> 
+                
+        
+        
+        {% empty %}
+             Hiç Bolum Eklenmedi. 
+        {% endfor %}
+          
+        {% for uoz in urunozellikleri %}
+        
+        <u style="color:cornflowerblue">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-> {{ uoz.ozellikAdi }}<br></u> 
+                
+        
+        {% empty %}
+             Hiç Bolum Eklenmedi. 
+        {% endfor %}
+     
+    
+ 
+</div>
+
+{% endblock %}
+
+
+             
+                   
+                    
